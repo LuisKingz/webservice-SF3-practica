@@ -1,0 +1,48 @@
+## YAML: AppBundle/Resources/config/routing.yml
+webservice_index: 
+    path: /
+    defaults: { _controller: AppBundle:Default:index }
+    
+webservice_authors: 
+    path: /authors
+    defaults: { _controller: AppBundle:Webservice:getAuthors }
+
+webservice_books: 
+    path: /books
+    defaults: { _controller: AppBundle:Webservice:getBooks }
+
+webservice_editorials: 
+    path: /editorials
+    defaults: { _controller: AppBundle:Webservice:getEditorials }
+    
+webservice_author_create: 
+    path: /author/create
+    defaults: { _controller: AppBundle:Webservice:createAuthor }
+    
+webservice_booksbyEditorial: 
+    path: /editorial/books
+    defaults: { _controller: AppBundle:Webservice:getBooksByEditorial }
+    
+webservice_author: 
+    path: /author
+    defaults: { _controller: AppBundle:Webservice:getAuthor }
+    
+webservice_author_update: 
+    path: /author/update
+    defaults: { _controller: AppBundle:Webservice:updateAuthor }
+    
+webservice_author_delete: 
+    path: /author/delete
+    defaults: { _controller: AppBundle:Webservice:deleteAuthor }
+    
+webservice_create_book: 
+    path: /book/create
+    defaults: { _controller: AppBundle:Webservice:createBook }
+
+#webservice_books:
+#    path: /books
+#    defaults: { _controller: AppBundle:Default:getBooks }
+#
+#webservice_booksByAuthor:
+#    path: /author/{author_id}/books/
+#    defaults: { _controller: AppBundle:Default:getBooksByAuthor }

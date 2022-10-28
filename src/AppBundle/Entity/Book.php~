@@ -1,0 +1,88 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Book
+ *
+ * @ORM\Table(name="book", indexes={@ORM\Index(name="editorial", columns={"editorial"}), @ORM\Index(name="author", columns={"author"})})
+ * @ORM\Entity
+ */
+class Book
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=65535, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="price", type="decimal", precision=10, scale=0, nullable=false)
+     */
+    private $price;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="page", type="integer", nullable=false)
+     */
+    private $page;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="isbn", type="string", length=25, nullable=false)
+     */
+    private $isbn;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer", nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var \Author
+     *
+     * @ORM\ManyToOne(targetEntity="Author")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="author", referencedColumnName="id")
+     * })
+     */
+    private $author;
+
+    /**
+     * @var \Editorial
+     *
+     * @ORM\ManyToOne(targetEntity="Editorial")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="editorial", referencedColumnName="id")
+     * })
+     */
+    private $editorial;
+
+
+}
+
